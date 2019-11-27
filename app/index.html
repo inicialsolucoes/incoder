@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta http-equiv="Cache-Control" content="no-cache, no-store" />
+<meta http-equiv="Pragma" content="no-cache, no-store" />
+<meta http-equiv="expires" content="Mon, 06 Jan 1990 00:00:01 GMT" />
+<meta name="robots" content="no-index, no-follow" />
+
+<title>inCoder - Web code navigator and editor</title>
+
+<link rel="apple-touch-icon" sizes="57x57" href="assets/img/icon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/img/icon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/img/icon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/img/icon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/img/icon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/img/icon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/img/icon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/img/icon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="assets/img/icon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/icon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/img/icon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/icon/favicon-16x16.png">
+<link rel="manifest" href="manifest.json">
+
+<meta name="msapplication-TileColor" content="#1d2125">
+<meta name="msapplication-TileImage" content="assets/img/icon/ms-icon-144x144.png">
+<meta name="theme-color" content="#1d2125">
+<meta name="mobile-web-app-capable" content="yes" />
+
+<link href="assets/css/font-awesome.min.css" rel="stylesheet" >
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/css/incoder.css" rel="stylesheet">
+<script src="assets/js/jquery-3.2.1.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/ace/ace.js"></script>
+<script src="assets/js/incoder.js?v1.0.0"></script>
+
+</head>
+<body>
+
+    <!-- Navigator Loading -->
+    <div class="hide navigator-loading">
+        <ul class="navigator-loading">
+            <li><a href="#"><span class="fa fa-spinner fa-pulse"></span> Loading...</a></li>
+        </ul>
+    </div>
+
+    <!-- Editor Working -->
+    <div class="hide editor-working">
+        <div class="editor-working">
+            <p><span class="fa fa-spinner fa-pulse"></span> Working...</p>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <span class="navbar-brand mr-auto">
+            <span>in</span>Coder
+            <small>Code Editor</small>
+        </span>
+        <div class="mr-auto"></div>
+        <button class="navbar-toggler navbar-toggler-margin click-save-file" type="button" aria-expanded="false" aria-label="Save">
+            <span class="fa fa-save"></span>
+        </button>
+        <button class="navbar-toggler navbar-toggler-margin click-toggle-navigator" type="button" aria-expanded="false" aria-label="Files">
+            <span class="fa fa-file-o"></span>
+        </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop" aria-controls="navbarTop" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTop">
+            <ul class="navbar-nav mr-auto"></ul>
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown incoder-dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="fa fa-file-o"></span> File
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown">
+                        <a href="#" class="dropdown-item click-save-file">
+                            <span class="fa fa-save"></span> Save <small class="shortcut">(Ctrl+S)</small>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown incoder-dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="fa fa-cog"></span> Options
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown">
+                        <a href="#" class="dropdown-item" data-toggle="modal" data-target="#settings">
+                            <span class="fa fa-cogs"></span> Settings
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="https://github.com/inicialcombr/incoder" class="dropdown-item" target="_blank">
+                            <span class="fa fa-github"></span> Github
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main -->
+    <div id="main" class="container-fluid incoder">
+        <div class="row">
+            <div id="navigator" class="col-md-3 col-lg-2 navigator"></div>
+            <div id="editor" class="col editor"></div>
+        </div>
+    </div>
+
+    <!-- Settings -->
+    <div id="settings" class="modal incoder-modal fade" tabindex="-1" role="dialog" aria-labelledby="settingsLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="settingsLabel"><span class="fa fa-cogs"></span> Settings</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="incoder-api-url">API URL</label>
+                <input type="text" class="form-control" id="incoder-api-url" aria-describedby="incoderApiUrlHelp" placeholder="http://www.example.com/api/">
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="incoder-api-auth-user">API Auth User</label>
+                        <input type="text" class="form-control" id="incoder-api-auth-user" placeholder="username">
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="incoder-api-auth-pass">API Auth Pass</label>
+                        <input type="password" class="form-control" id="incoder-api-auth-pass" placeholder="password">
+                      </div>
+                  </div>
+              </div>
+              <small>
+                You can develop or download an API.<br>
+                Read more on <a href="https://github.com/inicialcombr/incoder" target="_blank">Github</a>.
+              </small>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary click-save-settings" data-dismiss="modal">Load</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>

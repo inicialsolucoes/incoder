@@ -1,0 +1,110 @@
+html, body {
+    display: block; width: 100%; height: 100%;
+}
+.incoder {
+    display: block; position: absolute; top: 55px; bottom: 0;
+}
+.incoder>.row {
+    background-color: #141414; height: 100%
+}
+.incoder .navigator {
+    background-color: #1d2125; height: 100%; overflow: auto; color: #fff; font-size: 14px;
+}
+.incoder .navigator ul {
+	padding-left: 15px; margin: 0; margin-top: 5px;
+}
+.incoder .navigator > ul {
+	padding-left: 0; margin-top: 15px;
+}
+.incoder .navigator li {
+	list-style: none;
+}
+.incoder .navigator a {
+	border-top: 1px solid #222629; padding: 5px; display: block; color: #7b828b;
+}
+.incoder .navigator a .fa {
+	margin-right: 5px;
+}
+.incoder .navigator a.active {
+	border-left: 3px solid #007bff;
+}
+.incoder .navigator .folder {
+	font-weight: bold; color: #666;
+}
+.incoder .navigator .file {
+	font-weight: normal; color: #fff;
+}
+.incoder .editor {
+    height: 100%;
+}
+.incoder .editor .editor-working {
+	position: absolute; z-index: 5; display: block; width: 100%; height: 100%; background: rgba(30, 34, 38, 0.5);
+}
+.incoder .editor .editor-working p {
+	position: absolute; top: calc(50% - 25px); left: calc(50% - 100px); 
+	height: 50px; width: 180px; 
+	background: #1e2226; border: 1px solid #171515; border-radius: 5px; 
+	color: #757d86; font-weight: bold; font-size: 14px; padding: 15px;
+}
+.navbar {
+	box-shadow: 2px 2px 5px #000;
+}
+.navbar-brand {
+	font-weight: 200;
+}
+.navbar-brand > span {
+	color: #007bff; font-weight: bold;
+}
+.navbar-brand > small {
+	color: #565f69; font-size: 12px;
+}
+.incoder-dropdown .dropdown-menu {
+	background-color: #1e2226;
+}
+.incoder-dropdown .dropdown-item {
+	color: #7b828b;
+}
+.incoder-dropdown .dropdown-divider {
+	border-color: #222629;
+}
+.incoder-dropdown .shortcut {
+	font-size: 10px; float: right;
+}
+.incoder-modal.modal .modal-content {
+	background-color: #1d2125; color: #7b828b;
+}
+.incoder-modal.modal .modal-header, .incoder-modal.modal .modal-footer {
+	border-color: #2a2f33;
+}
+.incoder-modal.modal .close {
+	color: #fff;
+}
+.incoder-modal.modal .form-control {
+	background-color: #15181c; border-color: #0a0b0e; color: #7b828b;
+}
+.incoder-modal.modal .form-control:focus {
+	background-color: #15181c; border-color: #000000;
+}
+.navbar-toggler-margin {
+	margin-right: 15px;
+}
+::-webkit-scrollbar {
+	width: 8px; background-color: #0e0e0e;
+}
+::-webkit-scrollbar-track {
+  background-color: #0e0e0e;
+}
+::-webkit-scrollbar-thumb {
+  background: #24292d; border: 1px solid #0e0e0e; border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #424950;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #007bff;
+}
+@media (max-width: 768px) {
+	.incoder .navigator {
+		display: none;
+	}
+}
