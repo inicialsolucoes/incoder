@@ -1,0 +1,22 @@
+name: Staging Deploy
+
+on:
+  push:
+    branches: [ staging ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    #- name: Update apt-get
+    #  run: sudo apt-get update -y
+
+    - name: Install expect
+      run: sudo apt-get install -qq expect
+
+    - name: Deploy to server
+      run: sh ./build/deploy/staging.sh ${{ secrets.SSH_STG_USER }} ${{ secrets.SSH_STG_PASS }} ${{ secrets.GIT_USER }} ${{ secrets.GIT_PASS }}
