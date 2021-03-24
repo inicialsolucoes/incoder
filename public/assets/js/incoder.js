@@ -317,7 +317,7 @@ $(document).ready(function(){
 
     $('#settings').on('shown.bs.modal', function () {
         if (!$('#incoder-api-url').val()) {
-            $('#incoder-api-url').val('http://www.inicial.com.br/incoder/api/');
+            $('#incoder-api-url').val('http://www.inicial.com.br/incoder/demo/api/');
             $('#incoder-api-auth-user').val('demo');
             $('#incoder-api-auth-pass').val('demo');
         }
